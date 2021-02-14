@@ -1,0 +1,11 @@
+---
+  - name: filter running ec2 instance 
+    ec2_instance_facts:
+      region: "ap-northeast-1"
+      filters:
+        "instance-state-name": running
+    register: ec2_running
+
+  - name: list running ec2
+    debug:
+      msg: var=ec2_running

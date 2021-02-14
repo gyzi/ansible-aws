@@ -21,13 +21,15 @@
         msg: "how are you"
   - name: aws configure
     block:
-    - name: ec2 config
-      ec2:
-        image: ami-0dc185deadd3ac449
-        instance_type: t2.micro
-        region: ap-northeast-1
-        instance_tags:
-          Name: ansible-ec2
+    - name: import list ec2 tasks
+      import_tasks: list.yml
+    # - name: ec2 config
+    #   ec2:
+    #     image: ami-0dc185deadd3ac449
+    #     instance_type: t2.micro
+    #     region: ap-northeast-1
+    #     instance_tags:
+          # Name: ansible-ec2
     rescue:
     - name: message failed
       debug:
